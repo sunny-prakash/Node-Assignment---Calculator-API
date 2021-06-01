@@ -25,15 +25,16 @@ app.post("/add", (req, res) => {
         message: null,
         sum: null,
     };
+    let total = num1 + num2;
     if (typeof num1 === "string" || typeof num2 === "string") {
         resObj.status = "error";
         resObj.message = "Invalid data types";
         resObj.sum = "";
-    } else if (num1 < -value || num2 < -value) {
+    } else if (num1 < -value || num2 < -value || total < -value) {
         resObj.status = "error";
         resObj.message = "Underflow";
         resObj.sum = "";
-    } else if (num1 > value || num2 > value) {
+    } else if (num1 > value || num2 > value || total > value) {
         resObj.status = "error";
         resObj.message = "Overflow";
         resObj.sum = "";
