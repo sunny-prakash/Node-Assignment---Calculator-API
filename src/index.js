@@ -49,25 +49,25 @@ app.post("/sub", (req, res) => {
     let resObj = {
         status: null,
         message: null,
-        sum: null,
+        difference: null,
     };
     let total = num1 - num2;
     if (typeof num1 === "string" || typeof num2 === "string") {
         resObj.status = "error";
         resObj.message = "Invalid data types";
-        resObj.sum = "";
+        resObj.difference = "";
     } else if (num1 < -value || num2 < -value || total < -value) {
         resObj.status = "error";
         resObj.message = "Underflow";
-        resObj.sum = "";
+        resObj.difference = "";
     } else if (num1 > value || num2 > value || total > value) {
         resObj.status = "error";
         resObj.message = "Overflow";
-        resObj.sum = "";
+        resObj.difference = "";
     } else {
         resObj.status = "success";
         resObj.message = "the difference of given two numbers";
-        resObj.sum = total;
+        resObj.difference = total;
     }
     res.send(resObj);
 });
@@ -76,25 +76,25 @@ app.post("/multiply", (req, res) => {
     let resObj = {
         status: null,
         message: null,
-        sum: null,
+        result: null,
     };
     let total = num1 * num2;
     if (typeof num1 === "string" || typeof num2 === "string") {
         resObj.status = "error";
         resObj.message = "Invalid data types";
-        resObj.sum = "";
+        resObj.result = "";
     } else if (num1 < -value || num2 < -value || total < -value) {
         resObj.status = "error";
         resObj.message = "Underflow";
-        resObj.sum = "";
+        resObj.result = "";
     } else if (num1 > value || num2 > value || total > value) {
         resObj.status = "error";
         resObj.message = "Overflow";
-        resObj.sum = "";
+        resObj.result = "";
     } else {
         resObj.status = "success";
         resObj.message = "The product of given numbers";
-        resObj.sum = total;
+        resObj.result = total;
     }
     res.send(resObj);
 });
@@ -103,29 +103,29 @@ app.post("/divide", (req, res) => {
     let resObj = {
         status: null,
         message: null,
-        sum: null,
+        result: null,
     };
     let total = num1 / num2;
     if (num2 === 0) {
         resObj.status = "error";
         resObj.message = "Cannot divide by zero";
-        resObj.sum = "";
+        resObj.result = "";
     } else if (typeof num1 === "string" || typeof num2 === "string") {
         resObj.status = "error";
         resObj.message = "Invalid data types";
-        resObj.sum = "";
+        resObj.result = "";
     } else if (num1 < -value || num2 < -value || total < -value) {
         resObj.status = "error";
         resObj.message = "Underflow";
-        resObj.sum = "";
+        resObj.result = "";
     } else if (num1 > value || num2 > value || total > value) {
         resObj.status = "error";
         resObj.message = "Overflow";
-        resObj.sum = "";
+        resObj.result = "";
     } else {
         resObj.status = "success";
         resObj.message = "The division of given numbers";
-        resObj.sum = total;
+        resObj.result = total;
     }
     res.send(resObj);
 });
