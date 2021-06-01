@@ -41,7 +41,7 @@ app.post("/add", (req, res) => {
     } else {
         resObj.status = "success";
         resObj.message = "the sum of given two numbers";
-        resObj.sum = num1 + num2;
+        resObj.sum = total;
     }
     res.send(resObj);
 });
