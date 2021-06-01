@@ -16,13 +16,32 @@ app.get("/", (req, res) => {
     res.send("Hello World");
 });
 
+var value = 1000000;
 app.post("/add", (req, res) => {
-    console.log(req.body);
+    let { num1, num2 } = req.body;
+    // console.log(req.body);
     let resObj = {
-        status: "success",
-        message: "the sum of given two numbers",
-        sum: req.body.num1 + req.body.num2,
+        status: null,
+        message: null,
+        sum: null,
     };
+    if (typeof num1 === "string" || typeof num2 === "string") {
+        resObj.status = "error";
+        resObj.message = "Invalid data types";
+        resObj.sum = "";
+    } else if (num1 < -value || num2 < -value) {
+        resObj.status = "error";
+        resObj.message = "Underflow";
+        resObj.sum = "";
+    } else if (num1 > value || num2 > value) {
+        resObj.status = "error";
+        resObj.message = "Overflow";
+        resObj.sum = "";
+    } else {
+        resObj.status = "success";
+        resObj.message = "the sum of given two numbers";
+        resObj.sum = num1 + num2;
+    }
     res.send(resObj);
 });
 app.post("/sub", (req, res) => {
